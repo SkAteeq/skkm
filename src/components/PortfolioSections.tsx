@@ -281,6 +281,7 @@ export function PortfolioSections() {
                 src={company.logo}
                 alt={company.name}
                 loading="lazy"
+                referrerPolicy="no-referrer"
                 className="h-10 w-auto object-contain transition-all duration-300 opacity-40 hover:opacity-100 grayscale hover:grayscale-0"
                 onError={(e) => {
                   e.currentTarget.src = "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=100";
