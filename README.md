@@ -77,7 +77,7 @@ I have had the privilege to work and collaborate with teams at:
 
 ## 📬 Contact Information
 - **Phone:** [+91 88670 17559](tel:+918867017559)
-- **Email:** [sktba1104@gmail.com](mailto:sktba1104@gmail.com)
+- **Email:** [atq.com@gmail.com](mailto:atq.com@gmail.com)
 - **LinkedIn:** [S K Khaja Moinuddin](https://linkedin.com/in/atq-com/)
 
 ---
