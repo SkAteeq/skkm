@@ -255,7 +255,7 @@ export function PortfolioSections() {
         </div>
         
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-8 items-center justify-items-center">
-          {[
+            {[
             { name: "Capgemini", logo: "/logos/capgemini.png", url: "https://capgemini.com" },
             { name: "AWS", logo: "/logos/aws.png", url: "https://aws.amazon.com" },
             { name: "Google Cloud", logo: "/logos/google-cloud.png", url: "https://cloud.google.com" },
@@ -281,9 +281,9 @@ export function PortfolioSections() {
                 src={company.logo}
                 alt={company.name}
                 loading="lazy"
-                referrerPolicy="no-referrer"
                 className="h-10 w-auto object-contain transition-all duration-300 opacity-40 hover:opacity-100 grayscale hover:grayscale-0"
                 onError={(e) => {
+                  console.warn(`Failed to load logo: ${company.logo}`);
                   e.currentTarget.src = "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=100";
                   e.currentTarget.className = "h-8 w-auto object-contain opacity-20";
                 }}
