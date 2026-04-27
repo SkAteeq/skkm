@@ -1,8 +1,8 @@
 # S K Khaja Moinuddin 🚀
 ### AI Engineer • Data Analytics • Business Analytics • Generative AI & LLMs • Automation & Systems
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://khajamoinuddin.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge)](https://linkedin.com/in/your-profile)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://skkm.vercel.app/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge)](https://linkedin.com/in/atq-com/)
 
 ---
 
@@ -77,8 +77,8 @@ I have had the privilege to work and collaborate with teams at:
 
 ## 📬 Contact Information
 - **Phone:** [+91 88670 17559](tel:+918867017559)
-- **Email:** [your-email@example.com](mailto:your-email@example.com)
-- **LinkedIn:** [S K Khaja Moinuddin](https://linkedin.com/in/your-profile)
+- **Email:** [sktba1104@gmail.com](mailto:sktba1104@gmail.com)
+- **LinkedIn:** [S K Khaja Moinuddin](https://linkedin.com/in/atq-com/)
 
 ---
 
