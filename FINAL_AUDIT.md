@@ -43,6 +43,9 @@ The portfolio is a high-performance, responsive web application built with React
 - **Interactive Certificate:** The "1st Hackathon Winner" card is now fully clickable with a hover-state hint and external link icon.
 - **Enhanced Navigation:** The navigation bar now features a blurred glass background and stays pinned to the top with high z-index (100).
 - **Responsive Grids:** All sections (Skills, Projects, Experience) now use fluid grid systems that adapt seamlessly from mobile to wide-screen desktops.
+- **Experience orbital Enhancement:** Added detailed contributions, tech stack tags, and impact lines to each professional role. Interactive logo watermarks now transition to full color on hover, providing a more engaging professional narrative.
+- **Experience Accuracy:** Corrected the "Young Innovation" experience entry to accurately reflect software engineering and CRM system development work, removing incorrect NGO/social work context.
+- **Contact Clarity:** Switched to a minimal icon-only design with brand-specific icons and animated hover tooltips, improving the visual polish and compactness of the footer section.
 
 ## 4. Performance Optimizations
 - **Lazy Loading:** `Hero3D` component is lazy-loaded with a customized `Loading3D` fallback to improve initial PageSpeed.

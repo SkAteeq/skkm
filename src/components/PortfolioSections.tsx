@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Brain, Code2, Globe, Database, Award, ExternalLink, Mail, MessageSquare, Phone, Eye, Zap, TrendingUp, ShieldCheck, BarChart3, Building2 } from "lucide-react";
+import { Brain, Code2, Globe, Database, Award, ExternalLink, Mail, MessageCircle, Phone, Eye, Zap, TrendingUp, ShieldCheck, BarChart3, Building2, Linkedin } from "lucide-react";
 
 export function SectionTitle({ children, subtitle }: { children: React.ReactNode, subtitle?: string }) {
   return (
@@ -109,25 +109,57 @@ const experiences = [
     role: "Technical Trainer Consultant",
     company: "Coyolia Technologies",
     period: "Oct 2025 – Present",
-    description: "Leading technical training on Cloud Computing, AI and Data Analytics. Architecting practical learning materials for real-world workflows.",
+    description: "Delivers structured technical training on Cloud Computing, AI, and Data Analytics. Designs practical learning materials and hands-on labs for real-world workflows.",
+    logo: "/logos/coyolia.png",
+    contributions: [
+      "Curated and delivered advanced training batches on Cloud & AI engineering",
+      "Simplified complex technical concepts for professionals across diverse industries",
+      "Architected hands-on labs and simulations for production-grade environments"
+    ],
+    techStack: ["Python", "SQL", "GCP", "Data Analytics"],
+    impact: "Improved learner performance and job readiness through targeted mentorship and curriculum optimization."
   },
   {
     role: "Co-Founder & CTO",
     company: "Qoumi Security Solutions (QSS)",
     period: "Aug 2023 – Sep 2025",
-    description: "Driving company strategy focused on Generative AI innovation. Developing AI-driven insights for enhanced security operations.",
+    description: "Drove company strategy with an innovation-first focus on Generative AI. Built strategic partnerships and AI-powered insights for enhanced security operations.",
+    logo: "/logos/qss.png",
+    contributions: [
+      "Led cross-functional teams in fine-tuning and deploying AI/ML models",
+      "Integrated AI-powered automation into core security solutions",
+      "Engineered operational efficiency improvements through team-wide automation"
+    ],
+    techStack: ["Generative AI", "Automation", "Leadership", "AI Systems"],
+    impact: "Positioned QSS as a trusted industry leader by delivering high-impact AI security insights."
   },
   {
     role: "Associate Consultant",
     company: "Capgemini",
     period: "Aug 2021 – May 2023",
-    description: "Developed GPT-3 powered SAS-to-Python microservices. Built carbon-emission simulation digital twins for sustainable transport.",
+    description: "Specialized in AI-driven migrations, large-scale analytics, and digital twin development for sustainability and e-commerce growth.",
+    logo: "/logos/capgemini.png",
+    contributions: [
+      "Built a GPT-3 powered SAS-to-Python accelerator, cutting conversion time by 30%",
+      "Analyzed e-commerce campaigns using BigQuery, boosting conversion rates by 15%",
+      "Developed a Digital Twin for transport that reduced carbon emissions by 20%"
+    ],
+    techStack: ["Python", "SQL", "Looker", "Generative AI"],
+    impact: "Delivered multi-million hour savings and measurable ROI across global analytics initiatives."
   },
   {
     role: "Software Engineer",
     company: "Young Innovation",
     period: "Jan 2019 – Jun 2021",
-    description: "Built flexible CRM systems and secure donation platforms. Integrated engagement tracking for deep customer interaction analysis.",
+    description: "Built scalable CRM and web-based systems focused on customer engagement and operational workflows.",
+    logo: "/logos/young-innovation.png",
+    contributions: [
+      "Developed flexible CRM systems with relationship and engagement tracking",
+      "Designed customizable workflows and form-based systems for data capture",
+      "Integrated web platforms with backend systems for seamless user interaction"
+    ],
+    techStack: ["CRM Systems", "Web Applications", "Data Tracking", "System Design"],
+    impact: "Streamlined operational workflows and enhanced data capture through scalable system architectures."
   }
 ];
 
@@ -298,11 +330,46 @@ export function PortfolioSections() {
               </div>
               
               {/* Content Card */}
-              <div className="w-[calc(100%-4rem)] md:w-[45%] glass-morphism p-8 rounded-[2rem] ml-16 md:ml-0">
-                <span className="text-xs font-mono text-brand-primary mb-2 block">{exp.period}</span>
-                <h4 className="text-xl font-extrabold mb-1 text-black dark:text-white">{exp.role}</h4>
-                <p className="text-black/60 dark:text-white/40 text-sm font-medium mb-4">{exp.company}</p>
-                <p className="text-black/80 dark:text-white/60 text-sm leading-relaxed">{exp.description}</p>
+              <div className="w-[calc(100%-4rem)] md:w-[45%] glass-morphism p-6 md:p-8 rounded-[2rem] ml-16 md:ml-0 relative overflow-hidden group/card">
+                {/* Background Logo Watermark */}
+                <div className="absolute bottom-2 right-4 md:bottom-4 md:right-8 flex items-center justify-center pointer-events-none z-0">
+                  <img 
+                    src={exp.logo} 
+                    alt="" 
+                    className="h-16 md:h-32 opacity-15 dark:opacity-20 grayscale object-contain group-hover/card:scale-110 group-hover/card:opacity-100 group-hover/card:grayscale-0 transition-all duration-500 blur-[1px] group-hover/card:blur-0 mix-blend-multiply dark:mix-blend-screen" 
+                  />
+                </div>
+                
+                <div className="relative z-10">
+                  <span className="text-[10px] md:text-xs font-mono text-brand-primary mb-2 block uppercase tracking-widest">{exp.period}</span>
+                  <h4 className="text-xl font-extrabold mb-1 text-black dark:text-white leading-tight">{exp.role}</h4>
+                  <p className="text-black/60 dark:text-white/40 text-sm font-bold mb-4">{exp.company}</p>
+                  <p className="text-black/80 dark:text-white/60 text-sm leading-relaxed mb-4">{exp.description}</p>
+                  
+                  {/* Contributions */}
+                  <ul className="space-y-2 mb-6">
+                    {exp.contributions.map((bullet, i) => (
+                      <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-black/70 dark:text-white/50">
+                        <div className="w-1.5 h-1.5 rounded-full bg-brand-primary/40 mt-1.5 shrink-0" />
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Impact Line */}
+                  <p className="text-[10px] md:text-xs font-semibold text-brand-primary px-3 py-2 bg-brand-primary/5 rounded-lg border border-brand-primary/10 mb-6 italic">
+                    Impact: {exp.impact}
+                  </p>
+
+                  {/* Tech Tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {exp.techStack.map(tag => (
+                      <span key={tag} className="text-[9px] md:text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-black/5 dark:bg-white/5 rounded-md border border-black/5 dark:border-white/10 text-black/60 dark:text-white/40">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -331,12 +398,16 @@ export function PortfolioSections() {
           </motion.p>
         </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-12 items-center justify-items-center">
+        <div className="flex flex-wrap items-center justify-center gap-10">
             {[
-            { name: "Capgemini", logo: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=200", url: "https://capgemini.com" },
-            { name: "AWS", logo: "https://images.unsplash.com/photo-1614850523544-6726b3ff858f?auto=format&fit=crop&q=80&w=200", url: "https://aws.amazon.com" },
-            { name: "Google Cloud", logo: "https://images.unsplash.com/photo-1614850523459-c2f4c699952e?auto=format&fit=crop&q=80&w=200", url: "https://cloud.google.com" },
-            { name: "Cohere", logo: "https://images.unsplash.com/photo-1614850523023-4567b3ff858f?auto=format&fit=crop&q=80&w=200", url: "https://cohere.com" }
+            { name: "Capgemini", logo: "/logos/capgemini.png", url: "https://capgemini.com" },
+            { name: "AWS", logo: "/logos/aws.png", url: "https://aws.amazon.com" },
+            { name: "Google Cloud", logo: "/logos/google-cloud.png", url: "https://cloud.google.com" },
+            { name: "Cohere", logo: "/logos/cohere.png", url: "https://cohere.com" },
+            { name: "Coyolia", logo: "/logos/coyolia.png", url: "https://coyolia.com" },
+            { name: "Young Innovation", logo: "/logos/young-innovation.png", url: "#" },
+            { name: "Ikatra", logo: "/logos/ikatra.png", url: "https://ikatra.in" },
+            { name: "Qoumi Security Solutions", logo: "/logos/qss.png", url: "https://qoumisecurity.com/" }
           ].map((company, i) => (
             <motion.a
               key={company.name}
@@ -347,14 +418,26 @@ export function PortfolioSections() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.3 }}
-              whileHover={{ scale: 1.05 }}
-              className="flex flex-col items-center gap-4 transition-all group"
+              transition={{ delay: i * 0.05, duration: 0.3 }}
+              whileHover={{ scale: 1.1 }}
+              className="group transition-all duration-300"
             >
-              <div className="w-full aspect-video glass-morphism rounded-xl flex items-center justify-center p-4 group-hover:border-brand-primary/30 transition-all overflow-hidden relative">
-                <div className="absolute inset-0 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <span className="font-black text-xs uppercase tracking-[0.3em] text-black/20 dark:text-white/20 group-hover:text-brand-primary transition-colors">{company.name}</span>
-              </div>
+              <img 
+                src={company.logo}
+                alt={company.name}
+                loading="lazy"
+                className="h-8 w-auto object-contain opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 dark:invert"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const parent = e.currentTarget.parentElement;
+                  if (parent) {
+                    const span = document.createElement('span');
+                    span.className = "text-[10px] font-bold uppercase tracking-[0.2em] text-black/30 dark:text-white/20 group-hover:text-brand-primary transition-colors";
+                    span.innerText = company.name;
+                    parent.appendChild(span);
+                  }
+                }}
+              />
             </motion.a>
           ))}
         </div>
@@ -394,23 +477,66 @@ export function PortfolioSections() {
                 </p>
               </motion.div>
               
-              <div className="flex flex-wrap gap-4 justify-center items-center">
-                <a href="mailto:atq.com@gmail.com" className="flex items-center gap-3 px-6 py-4 bg-brand-primary text-black rounded-2xl font-bold hover:scale-105 transition-all focus:ring-4 focus:ring-brand-primary/20">
-                  <Mail className="w-5 h-5" />
-                  Email Me
-                </a>
-                <a href="tel:+918867017559" className="flex items-center gap-3 px-6 py-4 glass-morphism rounded-2xl font-bold hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-black dark:text-white">
-                  <Phone className="w-5 h-5 text-brand-primary" />
-                  +91 88670 17559
-                </a>
-                <a href="https://wa.me/918867017559" target="_blank" className="flex items-center gap-3 px-6 py-4 glass-morphism rounded-2xl font-bold hover:bg-green-500/10 border-green-500/20 hover:border-green-500/40 transition-all text-black dark:text-white">
-                  <MessageSquare className="w-5 h-5 text-green-500" />
-                  WhatsApp
-                </a>
-                <a href="https://linkedin.com/in/atq-com/" target="_blank" className="flex items-center gap-3 px-6 py-4 glass-morphism rounded-2xl font-bold hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-black dark:text-white">
-                  <ExternalLink className="w-5 h-5" />
-                  LinkedIn
-                </a>
+              <div className="flex flex-wrap gap-6 justify-center items-center">
+                {/* Email */}
+                <div className="group relative">
+                  <a 
+                    href="mailto:atq.com@gmail.com" 
+                    aria-label="Email"
+                    className="w-14 h-14 glass-morphism rounded-2xl flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:scale-110 transition-all duration-300 border border-black/5 dark:border-white/10 shadow-sm"
+                  >
+                    <Mail className="w-6 h-6" />
+                  </a>
+                  <span className="absolute -top-12 left-1/2 -translate-x-1/2 text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg bg-black text-white dark:bg-white dark:text-black opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-2xl translate-y-2 group-hover:translate-y-0">
+                    Email
+                  </span>
+                </div>
+
+                {/* Phone */}
+                <div className="group relative">
+                  <a 
+                    href="tel:+918867017559" 
+                    aria-label="Phone"
+                    className="w-14 h-14 glass-morphism rounded-2xl flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-green-500 hover:scale-110 transition-all duration-300 border border-black/5 dark:border-white/10 shadow-sm"
+                  >
+                    <Phone className="w-6 h-6" />
+                  </a>
+                  <span className="absolute -top-12 left-1/2 -translate-x-1/2 text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg bg-black text-white dark:bg-white dark:text-black opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-2xl translate-y-2 group-hover:translate-y-0">
+                    +91 88670 17559
+                  </span>
+                </div>
+
+                {/* WhatsApp */}
+                <div className="group relative">
+                  <a 
+                    href="https://wa.me/918867017559" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                    className="w-14 h-14 glass-morphism rounded-2xl flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-green-600 hover:scale-110 transition-all duration-300 border border-black/5 dark:border-white/10 shadow-sm"
+                  >
+                    <MessageCircle className="w-6 h-6" />
+                  </a>
+                  <span className="absolute -top-12 left-1/2 -translate-x-1/2 text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg bg-black text-white dark:bg-white dark:text-black opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-2xl translate-y-2 group-hover:translate-y-0">
+                    WhatsApp
+                  </span>
+                </div>
+
+                {/* LinkedIn */}
+                <div className="group relative">
+                  <a 
+                    href="https://linkedin.com/in/atq-com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    className="w-14 h-14 glass-morphism rounded-2xl flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-blue-700 hover:scale-110 transition-all duration-300 border border-black/5 dark:border-white/10 shadow-sm"
+                  >
+                    <Linkedin className="w-6 h-6" />
+                  </a>
+                  <span className="absolute -top-12 left-1/2 -translate-x-1/2 text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg bg-black text-white dark:bg-white dark:text-black opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-2xl translate-y-2 group-hover:translate-y-0">
+                    LinkedIn
+                  </span>
+                </div>
               </div>
             </div>
           </div>
