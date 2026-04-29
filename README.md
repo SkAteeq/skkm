@@ -1,7 +1,7 @@
 # S K Khaja Moinuddin 🚀
 ### AI Engineer • Data Analytics • Business Analytics • Generative AI & LLMs • Automation & Systems
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://skkm.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://skkmcv.web.app/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge)](https://linkedin.com/in/atq-com/)
 
 ---

@@ -1,18 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
-@theme {
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   
-  --color-brand-primary: #00f2ff;
-  --color-brand-secondary: #7000ff;
-  --color-dark-bg: #030303;
+  --brand-primary: #0891b2; /* cyan-600 for better light theme contrast */
+  --brand-secondary: #6d28d9; /* violet-700 */
+  
+  /* Theme Base */
+  --bg-current: #ffffff;
+  --text-current: #0b0b0f;
+  --text-secondary: #4b5563;
+}
+
+.dark {
+  --brand-primary: #00f2ff;
+  --brand-secondary: #7000ff;
+  --bg-current: #0b0b0f;
+  --text-current: #ffffff;
+  --text-secondary: #9ca3af;
+}
+
+@theme {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
 }
 
 @layer base {
+  html {
+    @apply transition-colors duration-300;
+  }
+  
   body {
-    @apply bg-[var(--color-dark-bg)] text-white font-sans antialiased selection:bg-brand-primary selection:text-black;
+    background-color: var(--bg-current);
+    color: var(--text-current);
+    @apply font-sans antialiased selection:bg-brand-primary selection:text-black dark:selection:text-black;
     scroll-behavior: smooth;
   }
 
@@ -21,8 +49,20 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
 .glass-morphism {
-  @apply backdrop-blur-md bg-white/5 border border-white/10;
+  @apply backdrop-blur-xl bg-white/40 dark:bg-black/40 border border-black/5 dark:border-white/10 shadow-sm dark:shadow-none;
 }
 
 .text-gradient {
@@ -38,5 +78,5 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-white/20 rounded-full hover:bg-white/40 transition-colors;
+  @apply bg-black/20 dark:bg-white/20 rounded-full hover:bg-black/40 dark:hover:bg-white/40 transition-colors;
 }
