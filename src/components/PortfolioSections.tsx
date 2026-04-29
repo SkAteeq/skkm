@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Brain, Code2, Globe, Database, Award, ExternalLink, Mail, MessageSquare, Phone, Eye, Zap, TrendingUp, ShieldCheck, BarChart3 } from "lucide-react";
+import { Brain, Code2, Globe, Database, Award, ExternalLink, Mail, MessageSquare, Phone, Eye, Zap, TrendingUp, ShieldCheck, BarChart3, Building2 } from "lucide-react";
 
 export function SectionTitle({ children, subtitle }: { children: React.ReactNode, subtitle?: string }) {
   return (
@@ -331,16 +331,12 @@ export function PortfolioSections() {
           </motion.p>
         </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-8 items-center justify-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-12 items-center justify-items-center">
             {[
-            { name: "Capgemini", logo: "/logos/capgemini.png", url: "https://capgemini.com" },
-            { name: "AWS", logo: "/logos/aws.png", url: "https://aws.amazon.com" },
-            { name: "Google Cloud", logo: "/logos/google-cloud.png", url: "https://cloud.google.com" },
-            { name: "Cohere", logo: "/logos/cohere.png", url: "https://cohere.com" },
-            { name: "Coyolia", logo: "/logos/coyolia.png", url: "https://coyolia.com" },
-            { name: "Young Innovation", logo: "/logos/young-innovation.png", url: "#" },
-            { name: "Ikatra", logo: "/logos/ikatra.png", url: "https://ikatra.in" },
-            { name: "Qoumi Security Solutions", logo: "/logos/qss.png", url: "https://qoumisecurity.com/" }
+            { name: "Capgemini", logo: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=200", url: "https://capgemini.com" },
+            { name: "AWS", logo: "https://images.unsplash.com/photo-1614850523544-6726b3ff858f?auto=format&fit=crop&q=80&w=200", url: "https://aws.amazon.com" },
+            { name: "Google Cloud", logo: "https://images.unsplash.com/photo-1614850523459-c2f4c699952e?auto=format&fit=crop&q=80&w=200", url: "https://cloud.google.com" },
+            { name: "Cohere", logo: "https://images.unsplash.com/photo-1614850523023-4567b3ff858f?auto=format&fit=crop&q=80&w=200", url: "https://cohere.com" }
           ].map((company, i) => (
             <motion.a
               key={company.name}
@@ -351,21 +347,14 @@ export function PortfolioSections() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.05, duration: 0.3 }}
-              whileHover={{ scale: 1.1, filter: "grayscale(0%)" }}
-              className="flex items-center justify-center p-4 transition-all"
+              transition={{ delay: i * 0.1, duration: 0.3 }}
+              whileHover={{ scale: 1.05 }}
+              className="flex flex-col items-center gap-4 transition-all group"
             >
-              <img 
-                src={company.logo}
-                alt={company.name}
-                loading="lazy"
-                className="h-10 w-auto object-contain transition-all duration-300 opacity-40 hover:opacity-100 grayscale hover:grayscale-0"
-                onError={(e) => {
-                  console.warn(`Failed to load logo: ${company.logo}`);
-                  e.currentTarget.src = "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=100";
-                  e.currentTarget.className = "h-8 w-auto object-contain opacity-20";
-                }}
-              />
+              <div className="w-full aspect-video glass-morphism rounded-xl flex items-center justify-center p-4 group-hover:border-brand-primary/30 transition-all overflow-hidden relative">
+                <div className="absolute inset-0 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span className="font-black text-xs uppercase tracking-[0.3em] text-black/20 dark:text-white/20 group-hover:text-brand-primary transition-colors">{company.name}</span>
+              </div>
             </motion.a>
           ))}
         </div>
